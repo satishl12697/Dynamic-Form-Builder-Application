@@ -1,0 +1,87 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "role": "ADMIN"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "user123",
+      "role": "USER"
+    }
+  ],
+  "forms": [
+    {
+      "id": "a53e",
+      "name": "My Custom Form",
+      "fields": [
+        {
+          "id": "single_line_text",
+          "type": "text",
+          "label": "Single Line Text",
+          "required": false
+        },
+        {
+          "id": "multi_line_text",
+          "type": "textarea",
+          "label": "Multi Line Text",
+          "required": false
+        },
+        {
+          "id": "dropdown",
+          "type": "dropdown",
+          "label": "Dropdown",
+          "required": false,
+          "options": [
+            "Option 1",
+            "Option 2"
+          ]
+        },
+        {
+          "id": "checkbox_group",
+          "type": "checkbox",
+          "label": "Checkbox Group",
+          "required": false,
+          "options": [
+            "Check 1",
+            "Check 2"
+          ]
+        },
+        {
+          "id": "radio_group",
+          "type": "radio",
+          "label": "Radio Group",
+          "required": false,
+          "options": [
+            "Radio 1",
+            "Radio 2"
+          ]
+        },
+        {
+          "id": "date_picker",
+          "type": "date",
+          "label": "Date Picker",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "submissions": [
+    {
+      "id": "6434",
+      "formId": "a53e",
+      "data": {
+        "single_line_text": "test",
+        "multi_line_text": "test",
+        "dropdown": "Option 1",
+        "checkbox_group": "",
+        "radio_group": "Radio 1",
+        "date_picker": "2025-06-07T18:30:00.000Z"
+      },
+      "submittedAt": "2025-06-08T10:16:19.318Z"
+    }
+  ]
+}

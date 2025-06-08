@@ -1,0 +1,56 @@
+<ng-container *ngIf="!loading && formData">
+  <h2>{{ formData.name }}</h2>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div *ngFor="let field of formData.fields">
+      <ng-container [ngSwitch]="field.type">
+
+        <mat-form-field appearance="fill" *ngSwitchCase="'text'" style="width: 100%;">
+          <mat-label>{{ field.label }}</mat-label>
+          <input matInput [formControlName]="field.id" />
+          <mat-error *ngIf="userForm.get(field.id)?.hasError('required')">
+            This field is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" *ngSwitchCase="'textarea'" style="width: 100%;">
+          <mat-label>{{ field.label }}</mat-label>
+          <textarea matInput [formControlName]="field.id"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" *ngSwitchCase="'dropdown'" style="width: 100%;">
+          <mat-label>{{ field.label }}</mat-label>
+          <mat-select [formControlName]="field.id">
+            <mat-option *ngFor="let opt of field.options" [value]="opt">{{ opt }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div *ngSwitchCase="'radio'">
+          <label>{{ field.label }}</label>
+          <mat-radio-group [formControlName]="field.id">
+            <mat-radio-button *ngFor="let opt of field.options" [value]="opt">
+              {{ opt }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div *ngSwitchCase="'checkbox'">
+          <label>{{ field.label }}</label>
+          <div *ngFor="let opt of field.options">
+            <mat-checkbox>{{ opt }}</mat-checkbox>
+          </div>
+        </div>
+
+        <mat-form-field appearance="fill" *ngSwitchCase="'date'" style="width: 100%;">
+          <mat-label>{{ field.label }}</mat-label>
+          <input matInput [matDatepicker]="picker" [formControlName]="field.id" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+      </ng-container>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+</ng-container>

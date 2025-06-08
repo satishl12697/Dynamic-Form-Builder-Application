@@ -1,0 +1,14 @@
+<nav style="padding: 1rem;">
+  <a routerLink="/login" *ngIf="!authService.getUser()">Login</a>
+
+  <a routerLink="/admin" *ngIf="authService.getUser()?.role === 'ADMIN'">Form Builder</a>
+
+  <a routerLink="/user" *ngIf="authService.getUser()?.role === 'USER'">Form Viewer</a>
+
+  <button mat-raised-button color="accent" (click)="logout()" *ngIf="authService.getUser()"
+    style="float: right;">Logout</button>
+</nav>
+
+<hr />
+
+<router-outlet></router-outlet>

@@ -1,0 +1,17 @@
+<h2>Login</h2>
+<div>
+  <mat-form-field class="example-full-width">
+    <mat-label>Username</mat-label>
+    <input matInput [(ngModel)]="username" placeholder="Username">
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input matInput [(ngModel)]="password" placeholder="Password">
+  </mat-form-field>
+</div>
+
+<button mat-raised-button color="accent" (click)="login()">Login</button>
+
+<div *ngIf="error" style="color:red">{{ error }}</div>
